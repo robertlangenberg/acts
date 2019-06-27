@@ -1,50 +1,15 @@
 language: cpp
 
-#os:
-  #- linux
-  #- osx
+os:
+  - osx
 
-#compiler:
-  #- gcc
-  #- clang
-addons:
-        apt:
-          packages:
-addons:
-  apt:
-    update: true
-    sources:
-      - sourceline: 'ppa:mhier/libboost-latest'
-      - ubuntu-toolchain-r-test
-    packages:
-      - libeigen3-dev
-      - boost1.67
-      - cmake
-      - g++-7
+compiler:
+  - clang
 
-
-matrix:
-  include:
-    - os: linux
-      env:
-         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-
-    - os: linux
-      env:
-         - MATRIX_EVAL="CC=clang && CXX=clang++"
-
-    - os: osx
-      env:
-        - MATRIX_EVAL="CC=gcc && CXX=g++"
-
-    - os: osx
-      env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++"
 
 before_install:
   #- if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install eigen ; fi
-  - eval "${MATRIX_EVAL}"
 
 script:
   - mkdir build && cd build

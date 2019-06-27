@@ -22,10 +22,29 @@ addons:
       - cmake
       - g++-7
 
+
+matrix:
+  include:
+    - os: linux
+      env:
+         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+
+    - os: linux
+      env:
+         - MATRIX_EVAL="CC=clang && CXX=clang++"
+
+    - os: osx
+      env:
+        - MATRIX_EVAL="CC=gcc && CXX=g++"
+
+    - os: osx
+      env:
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
+
 before_install:
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
+  #- if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install eigen ; fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX=g++-7 ; fi
+  - eval "${MATRIX_EVAL}"
 
 script:
   - mkdir build && cd build

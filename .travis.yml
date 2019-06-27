@@ -15,10 +15,12 @@ addons:
     update: true
     sources:
       - sourceline: 'ppa:mhier/libboost-latest'
+      - ubuntu-toolchain-r-test
     packages:
       - libeigen3-dev
       - boost1.67
       - cmake
+      - g++-7
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi

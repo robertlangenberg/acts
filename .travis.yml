@@ -14,6 +14,19 @@ matrix:
       osx_image: xcode10.2
       before_install:
         - brew install eigen
+    - os: linux
+      addons:
+        apt:
+          update: true
+          sources:
+            - sourceline: 'ppa:mhier/libboost-latest'
+            - ubuntu-toolchain-r-test
+          packages:
+            - libeigen3-dev
+            - boost1.67
+            - cmake
+            - g++-7
+
 
 
 #before_install:

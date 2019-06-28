@@ -26,6 +26,7 @@ matrix:
             - boost1.67
             - cmake
             - g++-7
+      env: CC=gcc-7 CXX=g++-7
 
 
 

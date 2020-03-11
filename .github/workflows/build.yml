@@ -34,10 +34,10 @@ jobs:
 
   build_lcg:
     runs-on: ubuntu-18.04
-    container: gitlab-registry.cern.ch/acts/machines/cc7_lcg95:latest
+    # container: gitlab-registry.cern.ch/acts/machines/cc7_lcg95:latest
     steps:
     - uses: actions/checkout@v1
-    - name: Run
+    - name: Build lcg
       uses: ./github/actions/build_lcg
       with:
         os: cc7

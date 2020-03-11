@@ -9,9 +9,9 @@ inputs:
     description: LCG release version to use
     required: true
     default: 96
-  runs:
-    using: docker
-    image: Dockerfile
-    args:
-      - ${{ inputs.os }}
-      - ${{ inputs.lcg }}
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.os }}
+    - ${{ inputs.lcg }}

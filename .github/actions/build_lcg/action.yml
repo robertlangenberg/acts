@@ -1,0 +1,17 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  os: 
+    description: OS to use (slc6 or cc7)
+    required: true
+    default: cc7
+  lcg:
+    description: LCG release version to use
+    required: true
+    default: 96
+  runs:
+    using: docker
+    image: Dockerfile
+    args:
+      - ${{ inputs.os }}
+      - ${{ inputs.lcg }}

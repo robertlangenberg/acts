@@ -4,4 +4,4 @@ LABEL maintainer="Paul Gessinger"
 RUN apk --no-cache add python3 git
 
 COPY run.py run.py
-ENTRYPOINT ["run.py"]
+ENTRYPOINT ["/run.py"]

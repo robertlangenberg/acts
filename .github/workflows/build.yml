@@ -36,6 +36,8 @@ jobs:
     runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v1
+        with:
+          path: src
       - name: Install dependencies
         run: >
           brew install boost eigen cmake xerces-c
@@ -45,7 +47,7 @@ jobs:
         run: >
           source deps/bin/thisroot.sh
           && mkdir build && cd build
-          && cmake ..
+          && cmake ../src
           -DCMAKE_PREFIX_PATH=../deps
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_CXX_STANDARD=17

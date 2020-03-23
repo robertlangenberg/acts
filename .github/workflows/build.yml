@@ -43,7 +43,8 @@ jobs:
           && curl -SL https://acts.web.cern.ch/ACTS/ci/macOS_10.15_deps.tar.gz | tar -xzC deps
       - name: Build
         run: >
-          mkdir build && cd build
+          source deps/bin/thisroot.sh
+          && mkdir build && cd build
           && cmake ..
           -DCMAKE_PREFIX_PATH=../deps
           -DCMAKE_BUILD_TYPE=Release

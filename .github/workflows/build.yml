@@ -47,7 +47,6 @@ jobs:
           && mkdir deps
           && curl -SL https://acts.web.cern.ch/ACTS/ci/macOS_10.15_deps.tar.gz | tar -xzC deps
       - name: Build
-        working-directory: ./build
         run: >
           pwd
           && cd ..

@@ -40,12 +40,14 @@ jobs:
           path: src
       - name: Install dependencies
         run: >
-          brew install boost eigen cmake xerces-c
+          cd $GITHUB_WORKSPACE
+          && brew install boost eigen cmake xerces-c
           && mkdir deps
           && curl -SL https://acts.web.cern.ch/ACTS/ci/macOS_10.15_deps.tar.gz | tar -xzC deps
       - name: Build
         run: >
-          source deps/bin/thisroot.sh
+          cd $GITHUB_WORKSPACE
+          && source deps/bin/thisroot.sh
           && mkdir build && cd build
           && cmake ../src
           -DCMAKE_PREFIX_PATH=../deps

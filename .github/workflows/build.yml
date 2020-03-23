@@ -39,12 +39,13 @@ jobs:
       - name: Install dependencies
         run: >
           brew install boost eigen cmake
-          && curl -SL https://root.cern/download/root_v6.20.02.macosx64-10.15-clang110.tar.gz | tar -xzC .
+          && mkdir deps
+          && curl -SL https://acts.web.cern.ch/ACTS/ci/macOS_10.15_deps.tar.gz | tar -xzC deps
       - name: Build
         run: >
-          source root/bin/thisroot.sh
           && mkdir build && cd build
           && cmake ..
+          -DCMAKE_PREFIX_PATH=../deps
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_CXX_STANDARD=17
           -DACTS_BUILD_UNITTESTS=ON

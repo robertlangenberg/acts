@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: >
-          brew install boost eigen cmake
+          brew install boost eigen cmake xerces-c
           && mkdir deps
           && curl -SL https://acts.web.cern.ch/ACTS/ci/macOS_10.15_deps.tar.gz | tar -xzC deps
       - name: Build

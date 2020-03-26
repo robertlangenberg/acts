@@ -52,9 +52,6 @@ BOOST_AUTO_TEST_CASE(DiscTrapezoidBoundsProperties) {
   /// Test clone
   DiscTrapezoidBounds discTrapezoidBoundsObject(minHalfX, maxHalfX, rMin, rMax,
                                                 averagePhi);
-  auto pClonedDiscTrapezoidBounds = discTrapezoidBoundsObject.clone();
-  BOOST_CHECK_NE(pClonedDiscTrapezoidBounds, nullptr);
-  delete pClonedDiscTrapezoidBounds;
   //
   /// Test type() (redundant; already used in constructor confirmation)
   BOOST_CHECK_EQUAL(discTrapezoidBoundsObject.type(),
